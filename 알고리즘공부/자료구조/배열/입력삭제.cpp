@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 using namespace std;
 
-void insert(int idx, int num, int arr[], int& len){
+/*void insert(int idx, int num, int arr[], int& len){
     int* n = new int[len+1];
     if(idx>len){
         for(int i=0; i<len; i++)n[i]=arr[i];
@@ -24,6 +24,20 @@ void erase(int idx, int arr[], int& len){
     for(int i=idx; i<len+1; i++)n[i]=arr[i+1];
     for(int i=0; i<len; i++)arr[i]=n[i];
     delete[] n;
+}*/
+
+//더 개선한 버전
+
+void insert(int idx, int num, int arr[], int& len){
+    for(int i=len; i>idx; i--)arr[i]=arr[i-1];
+    arr[idx]=num;
+len++;
+}
+
+void erase(int idx, int arr[], int& len){
+len--;
+for(int i=idx; i<len; i++)arr[i]=arr[i+1]; 
+arr[len] = arr[9];
 }
 
 void printArr(int arr[], int& len){
